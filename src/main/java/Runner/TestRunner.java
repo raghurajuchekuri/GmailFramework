@@ -20,7 +20,7 @@ import cucumber.api.junit.Cucumber;
 		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:src\\main\\java\\com\\test\\automation\\reports\\report.html"},
 		tags = { "@SmokeTests,@UATTests" }
 		
-		//monochrome = true 
+		//monochrome = true
 		)
 
 public class TestRunner {
