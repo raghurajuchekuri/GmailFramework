@@ -14,7 +14,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src\\main\\java\\Features\\Sample.feature",
+		features = "src\\test\\java\\Features\\Sample.feature",
 		glue = {"Stepdefs"},
 		//format= {"pretty","html:src\\main\\java\\com\\test\\automation\\reports"},
 		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:src\\main\\java\\com\\test\\automation\\reports\\report.html"},
