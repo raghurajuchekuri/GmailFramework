@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriverException;
 
 import com.cucumber.listener.Reporter;
 import com.test.automation.config.FileReaderManager;
@@ -18,7 +19,7 @@ import cucumber.api.junit.Cucumber;
 		glue = {"Stepdefs"},
 		//format= {"pretty","html:src\\main\\java\\com\\test\\automation\\reports"},
 		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:src\\main\\java\\com\\test\\automation\\reports\\report.html"},
-		tags = { "@SmokeTests,@UATTests" }
+		tags = { "@SmokeTests,~@UATTests,@UATTests2" }
 		
 		//monochrome = true
 		)
@@ -26,6 +27,8 @@ import cucumber.api.junit.Cucumber;
 public class TestRunner {
 	@AfterClass
 	public static void writeExtentReport() {
+		
+		
 		Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
 		Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
 	    Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
@@ -33,6 +36,9 @@ public class TestRunner {
 	    Reporter.setSystemInfo("Selenium", "3.12.0");
 	    Reporter.setSystemInfo("Maven", "4.0.0");
 	    Reporter.setSystemInfo("Java Version", "1.8.0_151");
+	    
+	    
+	   
 	}
 	
 

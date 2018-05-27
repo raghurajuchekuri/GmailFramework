@@ -32,6 +32,8 @@ public class stepdefs {
 		driver = webDriverManager.getDriver();
 		driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
 	    webDriverManager.closeDriver();
+	    
+	    
 	
 	}
 	
