@@ -18,7 +18,7 @@ import cucumber.api.junit.Cucumber;
 		features = "src\\test\\java\\Features\\Sample.feature",
 		glue = {"Stepdefs"},
 		//format= {"pretty","html:src\\main\\java\\com\\test\\automation\\reports"},
-		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:src\\main\\java\\com\\test\\automation\\reports\\report.html"},
+		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:Reports\\report.html"},
 		tags = { "@SmokeTests,~@UATTests,@UATTests2" }
 		
 		//monochrome = true
