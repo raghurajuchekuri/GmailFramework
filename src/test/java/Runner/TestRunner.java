@@ -10,36 +10,26 @@ import com.cucumber.listener.Reporter;
 import com.test.automation.config.FileReaderManager;
 
 import cucumber.api.CucumberOptions;
+import cucumber.api.Scenario;
+import cucumber.api.java.Before;
 import cucumber.api.junit.Cucumber;
 
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src\\test\\java\\Features\\Sample.feature",
+		features = "src\\test\\java\\Features",
 		glue = {"Stepdefs"},
 		//format= {"pretty","html:src\\main\\java\\com\\test\\automation\\reports"},
 		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:Reports\\report.html"},
-		tags = { "@SmokeTests,~@UATTests,@UATTests2" }
-		
+		//tags = { "@SmokeTests,@UATTests,@UATTests2,@UATTests5" }
+		tags = { "@Regression,@UAT,@SmokeTests" }
 		//monochrome = true
 		)
 
-public class TestRunner {
-	@AfterClass
-	public static void writeExtentReport() {
-		
-		
-		Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
-		Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
-	    Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
-	    Reporter.setSystemInfo("Machine", 	"Windows 7 " + "64 Bit");
-	    Reporter.setSystemInfo("Selenium", "3.12.0");
-	    Reporter.setSystemInfo("Maven", "4.0.0");
-	    Reporter.setSystemInfo("Java Version", "1.8.0_151");
+public class TestRunner {	
 	    
 	    
-	   
-	}
+	 
 	
 
 }

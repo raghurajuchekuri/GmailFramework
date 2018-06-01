@@ -15,7 +15,7 @@ public class WebDriverManager {
 	private static final String CHROME_DRIVER_PROPERTY = "webdriver.chrome.driver";
  
 	public WebDriverManager() {
-		driverType = FileReaderManager.getInstance().getConfigReader().getBrowser();
+	    driverType = FileReaderManager.getInstance().getConfigReader().getBrowser();
 		environmentType = FileReaderManager.getInstance().getConfigReader().getEnvironment();
 	}
  
