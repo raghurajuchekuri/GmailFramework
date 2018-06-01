@@ -20,10 +20,11 @@ import cucumber.api.junit.Cucumber;
 		features = "src\\test\\java\\Features",
 		glue = {"Stepdefs"},
 		//format= {"pretty","html:src\\main\\java\\com\\test\\automation\\reports"},
-		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:Reports\\report.html"},
-		//tags = { "@SmokeTests,@UATTests,@UATTests2,@UATTests5" }
-		tags = { "@Regression,@UAT,@SmokeTests" }
+		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:Reports\\report.html"},		
+		tags = { "~@Regression,@UAT,@SmokeTests" }
 		//monochrome = true
+		//strict = false,
+		//dryRun = false
 		)
 
 public class TestRunner {	
