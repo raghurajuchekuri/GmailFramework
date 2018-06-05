@@ -33,12 +33,13 @@ public class jsonReader {
 		 System.out.println(birthday);
 		 System.out.println(age);
 		 System.out.println(married);
-		 System.out.println("Cars Null Value:"+car);
+		 System.out.println("Car:"+car);
 		 
+		 System.out.println("Food Items:");
 		 JSONArray favorite_foods = Objectone.getJSONArray("favorite_foods");
 		 List<Object> foods = favorite_foods.toList();
 		 for (Object food : foods) {
-		     System.out.println((String)food);
+		     System.out.print((String)food+" ");
 		 }
 		 System.out.println();
 		 

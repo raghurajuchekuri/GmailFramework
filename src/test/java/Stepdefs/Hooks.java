@@ -22,14 +22,15 @@ import cucumber.api.java.Before;
 	public class Hooks {		
 		
 		WebDriverManager webDriverManager;
-		WebDriver driver;
+		public static WebDriver driver;
 		
 		
 		@Before
 	    public void beforeScenario(){
+			
 	        System.out.println("This will run before the Scenario");
 	        Reporter.assignAuthor("Raghu Chekuri");
-		webDriverManager = new WebDriverManager();
+		    webDriverManager = new WebDriverManager();
 			driver = webDriverManager.getDriver();
 			driver.get(FileReaderManager.getInstance().getConfigReader().getApplicationUrl());
 	    }	
@@ -37,7 +38,7 @@ import cucumber.api.java.Before;
 					
 		@After(order = 2)
 		public void afterScenario(Scenario scenario) {
-			if (scenario.isFailed()) {
+			//if (scenario.isFailed()) {
 				String screenshotName = scenario.getName().replaceAll(" ", "_");
 				try {
 					//This takes a screenshot from the driver at save it to the specified location
@@ -57,7 +58,7 @@ import cucumber.api.java.Before;
 					Reporter.addScreenCaptureFromPath(destinationPath.toString());
 				} catch (IOException e) {
 				} 
-			}
+			//}
 		}
 		
 		@After(order = 1)

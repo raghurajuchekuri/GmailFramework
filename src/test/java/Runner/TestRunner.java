@@ -21,7 +21,7 @@ import cucumber.api.junit.Cucumber;
 		glue = {"Stepdefs"},
 		//format= {"pretty","html:src\\main\\java\\com\\test\\automation\\reports"},
 		plugin = { "com.cucumber.listener.ExtentCucumberFormatter:Reports\\report.html"},		
-		tags = { "~@Regression,@UAT,@SmokeTests" }
+		tags = { "@SmokeTests" }
 		//monochrome = true
 		//strict = false,
 		//dryRun = false

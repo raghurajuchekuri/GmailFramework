@@ -105,13 +105,19 @@
 		    <groupId>net.sourceforge.jexcelapi</groupId>
 		    <artifactId>jxl</artifactId>
 		    <version>2.6</version>
-		</dependency>   
+		</dependency>  
+		
+		<dependency>
+		    <groupId>io.rest-assured</groupId>
+		    <artifactId>rest-assured</artifactId>
+		    <version>3.0.2</version>
+		    <scope>test</scope>
+		</dependency> 
   </dependencies>
   
    <build>
 		   
-        <plugins>
-        
+        <plugins>      
         
         <plugin>
 		    <groupId>org.apache.maven.plugins</groupId>
@@ -124,8 +130,7 @@
 		            <include>**/TestRunner.class</include>
 		        </includes>		        
 		    </configuration>
-		</plugin>
-		
+		</plugin>		
 		
             <plugin>
                 <artifactId>
@@ -139,11 +144,8 @@
                 </configuration>
             </plugin>
             
-        </plugins>
-        
-        
-        
-    </build>
-        
+        </plugins>       
+                
+    </build>        
   
 </project>
