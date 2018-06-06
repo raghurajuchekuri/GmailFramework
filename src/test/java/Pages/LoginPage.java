@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import reusablecode.JsonReaders;
+
 
 
 public class LoginPage  {
@@ -33,13 +35,10 @@ public class LoginPage  {
 		
 		public void fillpwd() throws Throwable 
 		{
-			File file = new File("src\\test\\java\\Testdata\\gmaillogin.json");
-		    String content = FileUtils.readFileToString(file, "utf-8");		    
-		    JSONObject JsonObject = new JSONObject(content);		   
 			
-		    String password  = JsonObject.getString("password");			
+			pwd.sendKeys(JsonReaders.gmailjsondata().get(1));		
 			
-			pwd.sendKeys(password);
+			
 		}
 		
 		public void clickNext()

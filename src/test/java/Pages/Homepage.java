@@ -10,11 +10,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import reusablecode.JsonReaders;
+
 public class Homepage {
 	
-	//Location of elements
-	
+	//Location of elements	
 	public WebDriver driver;
+	
 	
 	@FindBy(name="identifier")
 	public WebElement uid;	
@@ -29,13 +31,9 @@ public class Homepage {
 	}
 	
 	public void filluid() throws Throwable
-	{
-		File file = new File("src\\test\\java\\Testdata\\gmaillogin.json");
-	    String content = FileUtils.readFileToString(file, "utf-8");		    
-	    JSONObject JsonObject = new JSONObject(content); 
-		String loginid = JsonObject.getString("loginid");
-		System.out.println(loginid);
-		uid.sendKeys(loginid);
+	{	
+		System.out.println(JsonReaders.gmailjsondata().get(0));
+		uid.sendKeys(JsonReaders.gmailjsondata().get(0));
 	}
 	
 	public void clickNext()

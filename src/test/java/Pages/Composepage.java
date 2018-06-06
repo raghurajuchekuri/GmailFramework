@@ -3,6 +3,11 @@ import java.awt.Robot;
 import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.json.JSONObject;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +15,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import reusablecode.JsonReaders;
 
 
 public class Composepage {
@@ -23,7 +30,10 @@ public class Composepage {
 			@FindBy(xpath="(//*[@aria-label=\"Message Body\"])[2]") public WebElement body;
 			@FindBy(xpath="//*[@aria-label=\"Attach files\"]")		public WebElement attach;	
 			@FindBy(xpath="(//*[contains(text(),'Send')])[1]")		public WebElement send;				
-			@FindBy(xpath="//span[contains(@class,'gb_ab gbii')]")	public WebElement logout1;				
+			
+			@FindBy(xpath="//*[contains(@title, 'Google Account: RaghuRaju Chekuri')]")	
+			public WebElement logout1;				
+			
 			@FindBy(id="gb_71")										public WebElement logout2;		
 									
 			public Composepage(WebDriver driver)
@@ -32,26 +42,31 @@ public class Composepage {
 				PageFactory.initElements(driver, this);
 			}	
 			
+							
 			
 			public void clickcompose()
 			{
-				clickcompose.click();
+				clickcompose.click();				
+				//System.out.println(clickcompose.getText());
+				Assert.assertEquals("COMPOSE",clickcompose.getText());
+				
 			}
 			
-			public void fillto(String x)
+			public void fillto() throws Throwable
 			{
-				to.sendKeys(x);
+				
+				to.sendKeys(JsonReaders.gmailjsondata().get(2));
 			}
 			
-			public void fillsubj(String x)
+			public void fillsubj() throws Throwable
 			{
-				subj.sendKeys(x);
+				subj.sendKeys(JsonReaders.gmailjsondata().get(3));
 											
 			}
 			
-			public void fillbody(String x)
+			public void fillbody() throws Throwable
 			{
-				body.sendKeys(x);								
+				body.sendKeys(JsonReaders.gmailjsondata().get(4));							
 				
 			}
 				

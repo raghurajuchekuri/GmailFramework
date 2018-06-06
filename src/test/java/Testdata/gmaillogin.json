@@ -2,6 +2,15 @@
 
   "loginid": "raghurajuchekuri",	
   
-  "password": "fdg$"	
+  "password": "krishna1957$",
+  
+  "to": "raghurajuchekuri@gmail.com",
+  
+  "subj": "Test Mail",
+  
+  
+  "body": "Hi Raghu \n \n Attachment from selenium Robot n POM" 
+  
+  	
 					 
 }

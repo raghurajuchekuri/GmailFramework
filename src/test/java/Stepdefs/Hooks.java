@@ -42,20 +42,17 @@ import cucumber.api.java.Before;
 				String screenshotName = scenario.getName().replaceAll(" ", "_");
 				try {
 					//This takes a screenshot from the driver at save it to the specified location
-					File sourcePath = ((TakesScreenshot)webDriverManager.getDriver()).getScreenshotAs(OutputType.FILE);
-					
+					File sourcePath = ((TakesScreenshot)webDriverManager.getDriver()).getScreenshotAs(OutputType.FILE);					
 					//Building up the destination path for the screenshot to save
 					//Also make sure to create a folder 'screenshots' with in the cucumber-report folder
 					Date date = new Date() ;
-				    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy-EEE HH-mm-ss");
-				    		
+				    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy-EEE HH-mm-ss");				    		
 					File destinationPath = new File(System.getProperty("user.dir") + "/Reports/screenshots/" + screenshotName+dateFormat.format(date)+".jpeg");
-					
 					//Copy taken screenshot from source location to destination location
-					Files.copy(sourcePath, destinationPath);   
-
+					Files.copy(sourcePath, destinationPath);
 					//This attach the specified screenshot to the test
 					Reporter.addScreenCaptureFromPath(destinationPath.toString());
+					
 				} catch (IOException e) {
 				} 
 			//}
@@ -64,14 +61,16 @@ import cucumber.api.java.Before;
 		@After(order = 1)
 		public static void writeExtentReport() {	
 			
-			
+			String browsername = FileReaderManager.getInstance().getConfigReader().getBrowser().name();
 			Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
+			Reporter.setSystemInfo("Browser",browsername);
 			Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
 		    Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
 		    Reporter.setSystemInfo("Machine", 	"Windows 7 " + "64 Bit");
 		    Reporter.setSystemInfo("Selenium", "3.12.0");
 		    Reporter.setSystemInfo("Maven", "4.0.0");
 		    Reporter.setSystemInfo("Java Version", "1.8.0_151");
+		   
 		
 		}
 		

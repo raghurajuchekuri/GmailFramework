@@ -27,29 +27,50 @@ public class stepdefs {
 	
 	@Given("^I am at Login page$")
 	public void login() throws Throwable {
-		System.out.println("hi Given");	
-		
+		System.out.println("hi Given");			
 		
 		hp.filluid();
-		hp.clickNext();
+		hp.clickNext();	
 		
+        lp.fillpwd();
+        Thread.sleep(2000);
+		lp.clickNext(); 
+		Thread.sleep(2000);
+	
+	}
+	
+	@Then("^I am at Compose page$")
+	public void Compose() throws Throwable {
+		
+		//Assert.assertEquals("a","b");
+		
+		cp.clickcompose();
 		Thread.sleep(2000);
 		
-        lp.fillpwd();		
-		//lp.clickNext();   	
-	    
+		cp.fillto();
+		
+		
+		cp.fillsubj();
+		
+		
+		cp.fillbody();		
 	
+		
+		cp.clicksend();			
+		Thread.sleep(2000);
+		
 	}
 	
-	@Then("^I am at login$")
-	public void login2() {
-		System.out.println("hi Then");
-		//Assert.assertEquals("a","b");
+	
+	@Then("^I will Logout$")
+	public void logout() throws Throwable {
+		
+		Thread.sleep(2000);
+		cp.clickLogout();	
+		Thread.sleep(2000);
+		cp.clickLogout2();
 	
 	}
-	
-	
-	
 	
 	
 	
