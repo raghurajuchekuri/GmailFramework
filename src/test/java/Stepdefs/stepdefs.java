@@ -13,6 +13,8 @@ import Pages.Homepage;
 import Pages.LoginPage;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import reusablecode.JsonReaders;
 
 
 public class stepdefs {
@@ -31,11 +33,37 @@ public class stepdefs {
 		
 		hp.filluid();
 		hp.clickNext();	
-		
-        lp.fillpwd();
+		      
+		}
+	
+	
+	@When("^I enter valid uid and pwd$")
+	public void validpwd() throws Throwable {
+				
+        lp.fillpwd(JsonReaders.gmailjsondata().get(1));
         Thread.sleep(2000);
 		lp.clickNext(); 
 		Thread.sleep(2000);
+	
+	}
+	
+	@When("^I enter invalid uid and pwd$")
+	public void invalidpwd() throws Throwable {
+				
+        lp.fillpwd(JsonReaders.gmailjsondata().get(5));
+        Thread.sleep(2000);
+		lp.clickNext(); 
+		Thread.sleep(2000);
+	
+	}
+	
+	
+	
+	@Then ("^Validate a error message$")
+	public void pwdcheck() throws Throwable {
+				
+		String x=lp.pwderr();
+		Assert.assertEquals(x,"Wrong password. Try again or click Forgot password to reset it.");
 	
 	}
 	

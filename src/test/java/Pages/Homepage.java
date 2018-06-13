@@ -24,6 +24,8 @@ public class Homepage {
 	@FindBy(id="identifierNext")
 	public WebElement uidNext;
 	
+	
+	
 	public Homepage(WebDriver driver)
 	{
 		this.driver=driver;
@@ -32,6 +34,7 @@ public class Homepage {
 	
 	public void filluid() throws Throwable
 	{	
+		
 		System.out.println(JsonReaders.gmailjsondata().get(0));
 		uid.sendKeys(JsonReaders.gmailjsondata().get(0));
 	}

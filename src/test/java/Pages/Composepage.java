@@ -16,6 +16,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.cucumber.listener.Reporter;
+
 import reusablecode.JsonReaders;
 
 
@@ -49,6 +51,7 @@ public class Composepage {
 				clickcompose.click();				
 				//System.out.println(clickcompose.getText());
 				Assert.assertEquals("COMPOSE",clickcompose.getText());
+				//Reporter.addStepLog("Failed");
 				
 			}
 			

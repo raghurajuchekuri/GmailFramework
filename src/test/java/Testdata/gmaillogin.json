@@ -1,16 +1,10 @@
 {
 
-  "loginid": "raghurajuchekuri",	
-  
-  "password": "df$",
-  
-  "to": "raghurajuchekuri@gmail.com",
-  
-  "subj": "Test Mail",
-  
-  
-  "body": "Hi Raghu \n \n Attachment from selenium Robot n POM" 
-  
-  	
-					 
+  "loginid": "raghurajuchekuri",  
+  "password": "fh$",
+  "Invalidpassword": "gfh$",  
+  "to": "raghurajuchekuri@gmail.com",  
+  "subj": "Test Mail",  
+  "body": "Hi Raghu \n \n Attachment from selenium Robot n POM"  	
+				 
 }
